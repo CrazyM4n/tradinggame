@@ -2,17 +2,18 @@
 	<head>
 		<link rel="stylesheet" href="/css/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
+		<script type="text/javascript">
+			localStorage.setItem("secretCode", "<%=@userLoginCode%>");
+		</script>
 	</head>
 	<body>
 		<div class="genericCenter">
-		Your code is <%=@userLoginCode%>, remember it just in case you ever need to recover your game!
+			Your code is <%=@userLoginCode%>, remember it just in case you ever need to recover your game!
 		</div>
-		<script type="text/javascipt">
-			localStorage.setItem("secretCode", "<%=@userLoginCode%>");
-		</script>
 		<form action="/play" method="get" class="genericCenter">
 			<input id="nickname" type="text">
 			<button type="submit">Click here to play!</button>
 		</form>
 		<%require 'json'; f = File.open("users/#{@userLoginCode}", "w"); f.write(JSON.generate({nickname: "", items: {}, itemsOnSale: {}})); f.close;%>
 	</body>
+</html>
