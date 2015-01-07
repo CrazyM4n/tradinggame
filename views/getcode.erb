@@ -1,0 +1,6 @@
+<link rel="stylesheet" href="/css/style.css">
+<div class="genericCenter">
+Your code is <%=@userLoginCode%>, remember it!
+</div>
+<a href="/play?"
+<%require 'json'; f = File.open("users/#{@userLoginCode}", "w"); f.write(JSON.generate({items: {}, itemsOnSale: {}})); f.close%>
