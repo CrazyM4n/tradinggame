@@ -10,5 +10,5 @@ get '/getlogincode' do
 	erb :getcode
 end
 get '/play' do
-	"it's not done babyyyy"
+	erb :play
 end
